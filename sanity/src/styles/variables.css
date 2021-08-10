@@ -1,0 +1,30 @@
+/*
+  Learn more:
+  https://www.sanity.io/guides/how-to-brand-your-studio
+*/
+
+/* Custom fonts */
+/*
+  @import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+*/
+
+:root {
+  /* Brand colors */
+  /*
+  --brand-primary: var(--brand-primary);
+  --brand-primary--inverted: #ffffff;
+  --brand-secondary: #ffa800;
+  --brand-secondary--inverted: #3c1609;
+  */
+  /* Typography */
+  /*
+  --font-family-sans-serif: 'Nunito';
+  --font-size-base: 18px;
+  --text-color: var(--brand-secondary--inverted);
+  */
+  /* Main Navigation */
+  /*
+  --main-navigation-color: var(--brand-secondary);
+  --main-navigation-color--inverted: var(--brand-secondary--inverted);
+  */
+}
