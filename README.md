@@ -1,4 +1,4 @@
-# Gatsby Sanity Starter
+# Sanity Astro Minimal Starter
 
 ## What you have
 
@@ -38,5 +38,4 @@ If you want to turn off preview you can set `watchMode: false` in gatsby-config
 [![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
 
 Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
-# sanity-astro-minimal-starter
-# sanity-astro-minimal-starter
+
