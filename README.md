@@ -2,7 +2,7 @@
 
 ## What you have
 
-- A blazing fast blog with [Gatsby.js](https://gatsbyjs.org)
+- A blazing fast blog with [Astro](https://astro.build)
 - Structured content using [Sanity.io](https://www.sanity.io)
 
 ## Quick start
