@@ -5,7 +5,7 @@
     "dataset": "production"
   },
   "project": {
-    "name": "Gatsby Sanity Starter"
+    "name": "Astro Sanity Minimal Starter"
   },
   "plugins": [
     "@sanity/base",

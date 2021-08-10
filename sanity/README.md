@@ -1,1 +1,1 @@
-# gatsby-sanity-starter
+# sanity-astro-minimal-starter
