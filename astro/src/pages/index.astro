@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+let title = 'Sanity Astro Starter';
+let description = 'This is the example repo for using Sanity and Astro';
+let permalink = 'https://example.com/';
+---
+
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+    <h1>Sanity Astro Minimal Starter</h1>
+    <a href="/blog">Blog</a>
+</BaseLayout>
