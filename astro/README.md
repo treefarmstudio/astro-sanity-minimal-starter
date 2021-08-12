@@ -1,1 +1,0 @@
-# sanity-astro-minimal-starter
