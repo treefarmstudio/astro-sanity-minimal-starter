@@ -1,0 +1,17 @@
+{
+  "name": "astro-minimal-starter",
+  "version": "0.1.1",
+  "private": false,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build"
+  },
+  "devDependencies": {
+    "@astrojs/renderer-lit": "^0.1.0",
+    "astro": "^0.19.1"
+  },
+  "dependencies": {
+    "@sanity/block-content-to-markdown": "^0.0.5",
+    "@sanity/image-url": "^0.140.22"
+  }
+}

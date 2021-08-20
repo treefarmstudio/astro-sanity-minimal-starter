@@ -1,0 +1,52 @@
+---
+export interface Props {
+  post: any;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="post-preview">
+    <a href={post.url}>
+    {post.heroImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={post.heroImage} alt={post.alt} />}
+    <h1 class="title">{post.title}</h1>
+    <time class="publish-date">{post.publishDate}</time>
+    <p>{post.description}</p>
+    </a>
+</article>
+
+<style>
+  a {
+    text-decoration: none;
+  }
+
+  a:hover > .title {
+    text-decoration: underline;
+  }
+
+.post-main__img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.title,
+.author,
+.publish-date {
+  margin: 0;
+}
+
+.publish-date,
+.author {
+  font-size: 1.25rem;
+  color: var(--theme-text-lighter);
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--theme-text);
+}
+
+</style>
