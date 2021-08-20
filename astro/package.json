@@ -8,7 +8,9 @@
   },
   "devDependencies": {
     "@astrojs/renderer-lit": "^0.1.0",
-    "astro": "^0.19.1"
+    "astro": "^0.19.1",
+    "date-fns": "^2.23.0",
+    "dotenv": "^10.0.0"
   },
   "dependencies": {
     "@sanity/block-content-to-markdown": "^0.0.5",

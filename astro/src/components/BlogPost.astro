@@ -1,5 +1,7 @@
 ---
-import { Mardown } from "astro/components"
+import { Markdown } from "astro/components"
+
+import { getSanityImageUrl, formatBlogPostDate, convertPortableTextToMarkdown } from '../utils/helpers.js'
 
 export interface Props {
   title: string;
@@ -9,14 +11,14 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-const blogPostBody = await 
+const blogPostBody = await convertPortableTextToMarkdown(post.bodyRaw);
 ---
 
 <article class="post-content__article">
-    {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={post} alt={alt} />}
-    <h1>{title}</h1>
-    <time>{publishDate}</time>
-    <Markdown />
+    {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage)} />}
+    <h1>{post.title}</h1>
+    <time>{formatBlogPostDate(post.publishedAt)}</time>
+    <Markdown content={blogPostBody} />
 </article>
 
 <style>
