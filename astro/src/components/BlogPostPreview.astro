@@ -13,7 +13,7 @@ const blogPostExcerptBody = await convertPortableTextToMarkdown(post.excerptRaw)
 
 <article class="post-preview__article">
     <a href={`/blog/${post.slug.current}`}>
-    {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage)} />}
+    {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage).url()} />}
     <h1 class="title">{post.title}</h1>
     <time class="publish-date">{formatBlogPostDate(post.publishedAt)}</time>
     <Markdown content={blogPostExcerptBody} />
