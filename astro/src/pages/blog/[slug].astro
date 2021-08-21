@@ -1,4 +1,5 @@
 ---
+import site from "../../data/site.js"
 // Component Imports
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
 import BlogPost from '../../components/BlogPost.astro'
@@ -14,17 +15,28 @@ import { allPosts } from '../../lib/api.js';
 // let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 // let permalink = 'https://example.com/blog/';
 
-export async function getStaticPaths({paginate}) {
+export async function getStaticPaths({paginate, rss}) {
   const response = await fetch(sanityGraphqlQuery(allPosts));
   const data = await response.json();
   const allBlogPosts = data.data.allPost;
 
+  rss({
+    title: 'Example Blog',
+    description: 'An example blog on Astro',
+    customData: `<language>en-us</language>`,
+    items: allBlogPosts.map(item => ({
+      title: item.title,
+      description: item.description,
+      link: `/blog/${item.slug.current}`,
+      pubDate: item.publishedAt,
+    })),
+  });
   return allBlogPosts.map(post => ({params: { slug: post.slug.current }, props: {post}}));
 }
 
 const { post } = Astro.props;
 ---
 <!DOCTYPE html>
-<BlogPostLayout title={post.title} ogImageUrl={post.mainImage.asset.url} >
+<BlogPostLayout title={post.title}  ogImageUrl={post.mainImage.asset.url} >
    <BlogPost post={post} />
 </BlogPostLayout>
