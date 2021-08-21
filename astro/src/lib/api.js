@@ -10,6 +10,7 @@ export const allPosts = `{
         url
       }
     }
+    excerptRaw
     bodyRaw
   }
 }`;

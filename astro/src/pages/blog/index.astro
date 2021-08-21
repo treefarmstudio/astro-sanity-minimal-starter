@@ -11,20 +11,19 @@ let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
 
-export async function getStaticPaths({paginate}) {
-    /* Fetch all markdown posts */
-    const allPosts = Astro.fetchContent('../posts/*.md');
-    const sortedPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-    return paginate(sortedPosts, {pageSize: 10});
-}
+import { sanityGraphqlQuery } from '../../utils/helpers.js';
+import {allPosts} from '../../lib/api.js';
 
-const { page } = Astro.props;
+const response = await fetch(sanityGraphqlQuery(allPosts));
+const data = await response.json();
+const posts = data.data.allPost;
+
 ---
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
   <article class="blog-page-content__article">
     <section class="postlist">
-      {page.data.map((post) => <BlogPostPreview post={post} />)}
+      {posts.map((post) => <BlogPostPreview post={post} />)}
     </section>
   </article>
 </BaseLayout>
