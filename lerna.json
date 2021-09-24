@@ -1,6 +1,6 @@
 {
   "packages": [
-    "gatsby",
+    "astro",
     "sanity"
   ],
   "version": "1.0.0"

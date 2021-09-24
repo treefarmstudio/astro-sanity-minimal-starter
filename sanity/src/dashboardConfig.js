@@ -24,7 +24,7 @@ export default {
         data: [
           {
             title: 'GitHub repo',
-            value: 'https://github.com/jaydanurwin/gatsby-sanity-starter',
+            value: 'https://github.com/jaydanurwin/astro-sanity-minimal-starter',
             category: 'Code'
           }
           // Add your own hosted website url here if you'd like a quick link to the frontend
