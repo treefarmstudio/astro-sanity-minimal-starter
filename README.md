@@ -44,7 +44,7 @@ Follow the manual steps below:
 10. Rename `.env.template` to `.env` and 
 11. Replace the demo token ID `8hj1t7km` with your token ID
 12. To run your Astro site
-    1.  . Open a terminal located at the astro folder
+    1.  Open a terminal located at the astro folder
     2.  `npm install`
     3.  `npm start`
     4.  Your Astro site should be running on [http://localhost:3000](http://localhost:3000)
