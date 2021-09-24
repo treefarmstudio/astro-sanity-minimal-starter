@@ -49,15 +49,3 @@ Follow the manual steps below:
     4.  Your Astro site should be running on [http://localhost:3000](http://localhost:3000)
 12. `npm run build` to build to production locally
 
-## Enable real-time content preview on development
-
-1. Go to your [project’s API settings on manage.sanity.io](https://manage.sanity.io/projects/adxlh59f/settings/api) and create a token with read rights.
-2. Rename `.env.development.template` to `.env` and paste in the token: `SANITY_READ_TOKEN="yourTokenHere"`.
-3. Restart the development server (`ctrl + C` and `npm run dev`).
-
-## Stuck? Get help
-
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
-
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
-
