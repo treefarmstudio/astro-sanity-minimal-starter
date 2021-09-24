@@ -1,7 +1,0 @@
-{
-  "packages": [
-    "astro",
-    "sanity"
-  ],
-  "version": "1.0.0"
-}
