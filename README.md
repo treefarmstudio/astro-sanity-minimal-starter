@@ -10,7 +10,7 @@ Sometimes starters can feel like they are giving us way too much and you'll spen
 
 ## Features
 
-- A full headless CMS with [Sanity.io](https://sanity.io)
+- A customizable headless CMS with [Sanity.io](https://sanity.io)
 - Excellent SEO Built In
   - Open Graph Tags (Twitter, Facebook, etc.)
   - User Declared Canonical URLs
