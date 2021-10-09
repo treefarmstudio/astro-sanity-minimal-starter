@@ -1,5 +1,6 @@
 ---
 import { Markdown } from "astro/components"
+import Wrapper from './Wrapper.astro'
 
 import { getSanityImageUrl, formatBlogPostDate, convertPortableTextToMarkdown } from '../utils/helpers.js'
 
@@ -14,18 +15,19 @@ const { post } = Astro.props;
 const blogPostBody = await convertPortableTextToMarkdown(post.bodyRaw);
 ---
 
-<article class="post-content__article">
-    {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage).url()} />}
-    <h1>{post.title}</h1>
-    <time>{formatBlogPostDate(post.publishedAt)}</time>
-    <Markdown content={blogPostBody} />
-</article>
+<Wrapper>
+  <article class="post-content__article">
+      {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage).url()} />}
+      <h1>{post.title}</h1>
+      <time>{formatBlogPostDate(post.publishedAt)}</time>
+      {post.author && <p>By {post.author.name}</p>}
+      <Markdown content={blogPostBody} />
+  </article>
+</Wrapper>
 
 <style>
   .post-content__article {
-    margin: 0 auto;
     padding: 1rem;
-    max-width: 960px;
   }
 
   .post-main__img {

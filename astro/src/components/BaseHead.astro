@@ -34,14 +34,14 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, ar
 <meta property="og:url" content={permalink || site.url} />
 <meta property="og:title" content={title || site.title} />
 <meta property="og:description" content={description || site.description} />
-<meta property="og:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+<meta property="og:image" content={ogImageUrl ? `${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink || site.url} />
 <meta property="twitter:title" content={title || site.title} />
 <meta property="twitter:description" content={description || site.description} />
-<meta property="twitter:image" content={ogImageUrl ? `${site.url}${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+<meta property="twitter:image" content={ogImageUrl ? ogImageUrl : `${site.url}/assets/img/social.jpg`} />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">

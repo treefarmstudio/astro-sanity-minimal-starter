@@ -1,6 +1,7 @@
 ---
 // Component Imports
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import Wrapper from '../../components/Wrapper.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
 // Component Script:
@@ -21,11 +22,13 @@ const posts = data.data.allPost;
 ---
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
-  <article class="blog-page-content__article">
-    <section class="postlist">
-      {posts.map((post) => <BlogPostPreview post={post} />)}
-    </section>
-  </article>
+  <Wrapper>
+    <article class="blog-page-content__article">
+      <section class="postlist">
+        {posts.map((post) => <BlogPostPreview post={post} />)}
+      </section>
+    </article>
+  </Wrapper>
 </BaseLayout>
 
 <style>

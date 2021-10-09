@@ -2,12 +2,12 @@
 import { Markdown } from 'astro/components';
 import BaseHead from '../components/BaseHead.astro';
 
-const {title, description, publishDate, author, heroImage, post, permalink, alt} = Astro.props;
+const {title, description, ogImageUrl, publishDate, permalink} = Astro.props;
 ---
 <!DOCTYPE html>
 <html>
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={heroImage} publishDate={publishDate} canonicalURL={Astro.request.canonicalURL} articleSchema />
+    <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={ogImageUrl} publishDate={publishDate} canonicalURL={Astro.request.canonicalURL} articleSchema />
   </head>
 
   <body>

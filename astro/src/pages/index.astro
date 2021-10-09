@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Wrapper from '../components/Wrapper.astro';
 
 let title = 'Astro Sanity Minimal Starter';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
@@ -7,6 +8,8 @@ let permalink = 'https://example.com/';
 ---
 
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+  <Wrapper>
     <h1>Astro Sanity Minimal Starter</h1>
     <a href="/blog">Blog</a>
+  </Wrapper>
 </BaseLayout>

@@ -31,9 +31,8 @@ function ArticleSchema({title, permalink, publishDate, ogImageUrl, description})
         "datePublished": `${publishDate}`,
         "image": {
             "@type": "ImageObject",
-            "url": `${site.url}${ogImageUrl}`,
-            "width": 3600,
-            "height": 1890
+            "url": `${ogImageUrl}`,
+            "width": 1200,
         },
         "description": `${description}`,
             "mainEntityOfPage": {

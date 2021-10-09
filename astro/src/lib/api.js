@@ -5,12 +5,15 @@ export const allPosts = `{
     }
     title
   	publishedAt
+    author{
+      name
+    }
     mainImage{
       asset{
         url
       }
     }
-    excerptRaw
+    excerpt
     bodyRaw
   }
 }`;

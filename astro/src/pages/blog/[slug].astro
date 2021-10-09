@@ -1,21 +1,12 @@
 ---
-import site from "../../data/site.js"
 // Component Imports
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
 import BlogPost from '../../components/BlogPost.astro'
 
-import { sanityGraphqlQuery } from '../../utils/helpers.js';
+import { getSanityImageUrl, sanityGraphqlQuery } from '../../utils/helpers.js';
 import { allPosts } from '../../lib/api.js';
 
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
-// let title = 'Example Blog';
-// let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
-// let permalink = 'https://example.com/blog/';
-
-export async function getStaticPaths({paginate, rss}) {
+export async function getStaticPaths({rss}) {
   const response = await fetch(sanityGraphqlQuery(allPosts));
   const data = await response.json();
   const allBlogPosts = data.data.allPost;
@@ -37,6 +28,6 @@ export async function getStaticPaths({paginate, rss}) {
 const { post } = Astro.props;
 ---
 <!DOCTYPE html>
-<BlogPostLayout title={post.title}  ogImageUrl={post.mainImage.asset.url} >
+<BlogPostLayout title={post.title}  ogImageUrl={getSanityImageUrl(post.mainImage).width(1200).url()} >
    <BlogPost post={post} />
 </BlogPostLayout>
