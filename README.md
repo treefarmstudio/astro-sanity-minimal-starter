@@ -27,6 +27,7 @@ Watch my [step-by-step tutorial on YouTube]()
 
 **Or** 
 
+
 Follow the manual steps below:
 
 ### Initial Sanity Setup

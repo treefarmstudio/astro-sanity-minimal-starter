@@ -19,6 +19,6 @@ export function getSanityImageUrl(source) {
     return builder.image(source);
 }
 
-export async function convertPortableTextToMarkdown (postBody) {
+export async function convertBlockContentToMarkdown (postBody) {
     return BlocksToMarkdown(postBody);
   }

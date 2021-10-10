@@ -2,7 +2,7 @@
 import { Markdown } from "astro/components"
 import Wrapper from './Wrapper.astro'
 
-import { getSanityImageUrl, formatBlogPostDate, convertPortableTextToMarkdown } from '../utils/helpers.js'
+import { getSanityImageUrl, formatBlogPostDate, convertBlockContentToMarkdown } from '../utils/helpers.js'
 
 export interface Props {
   title: string;
@@ -12,7 +12,7 @@ export interface Props {
 }
 
 const { post } = Astro.props;
-const blogPostBody = await convertPortableTextToMarkdown(post.bodyRaw);
+const blogPostBody = await convertBlockContentToMarkdown(post.bodyRaw);
 ---
 
 <Wrapper>
