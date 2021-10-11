@@ -23,7 +23,7 @@ Sometimes starters can feel like they are giving us way too much and you'll spen
 
 ## Get Started
 
-Watch my [step-by-step tutorial on YouTube]()
+Watch my [step-by-step tutorial on YouTube](https://youtu.be/-jAWLTfsSQw)
 
 **Or** 
 
