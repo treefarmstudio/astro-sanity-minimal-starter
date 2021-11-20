@@ -42,8 +42,8 @@ Follow the manual steps below:
    1. Take note of the graphql API url it outputs once finished
 8. Navigate to the astro folder
 7. Rename `.env.template` to `.env` and 
-8. Replace the SANITY_PROJECT_ID value with your token ID
-9. Replace the SANITY_GRAPHQL_URL value with your GraphQL URL
+8. Replace the PUBLIC_SANITY_PROJECT_ID value with your token ID
+9. Replace the PUBLIC_SANITY_GRAPHQL_URL value with your GraphQL URL
 
 **Note:** You will want to add http://localhost:3000 to your allowed CORS orgins in your Sanity project settings at [https://manage.sanity.io](https://manage.sanity.io)
  
