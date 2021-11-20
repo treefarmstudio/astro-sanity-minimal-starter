@@ -1,6 +1,6 @@
 export const client = {
-    projectId: process.env.SANITY_PROJECT_ID,
-    dataset: process.env.SANITY_DATASET,
-    token: process.env.SANITY_READ_TOKEN,
+    projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
+    dataset: import.meta.env.PUBLIC_SANITY_DATASET,
+    token: import.meta.env.PUBLIC_SANITY_READ_TOKEN,
     useCdn: true,
 };

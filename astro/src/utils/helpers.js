@@ -6,7 +6,7 @@ import BlocksToMarkdown from '@sanity/block-content-to-markdown';
 const builder = imageUrlBuilder(client);
 
 export function sanityGraphqlQuery(query) {
-    return `${process.env.SANITY_GRAPHQL_URL}?query=${query}`;
+    return `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL}?query=${query}`;
 }
 
 export function formatBlogPostDate ( date ) {

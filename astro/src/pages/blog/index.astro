@@ -4,6 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Wrapper from '../../components/Wrapper.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
+import { sanityGraphqlQuery } from '../../utils/helpers.js';
+import { allPosts } from '../../lib/api.js';
+
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
 // It will run during the build, but never in the browser.
@@ -12,8 +15,7 @@ let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
 
-import { sanityGraphqlQuery } from '../../utils/helpers.js';
-import {allPosts} from '../../lib/api.js';
+
 
 const response = await fetch(sanityGraphqlQuery(allPosts));
 const data = await response.json();
