@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Wrapper from '../../components/Wrapper.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
-import { sanityGraphqlQuery } from '../../utils/helpers.js';
+import { getSanityContent } from '../../utils/helpers.js';
 import { allPosts } from '../../lib/api.js';
 
 // Component Script:
@@ -15,11 +15,8 @@ let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
 
-
-
-const response = await fetch(sanityGraphqlQuery(allPosts));
-const data = await response.json();
-const posts = data.data.allPost;
+const response = await getSanityContent({query: allPosts});
+const posts = response.allPost;
 
 ---
 <!DOCTYPE html>

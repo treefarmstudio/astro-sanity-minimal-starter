@@ -5,8 +5,27 @@ import BlocksToMarkdown from '@sanity/block-content-to-markdown';
 
 const builder = imageUrlBuilder(client);
 
-export function sanityGraphqlQuery(query) {
-    return `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL}?query=${query}`;
+// this was the previous way fetches were done but required more boilerplate on the frontend of queries
+// so we are moving to the getSanityContent function below
+// export function sanityGraphqlQuery(query) {
+//     return `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL}?query=${query}`;
+// }
+
+export async function getSanityContent({ query, variables = {} }) {
+  const { data } = await fetch(
+    `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL || "https://adxlh59f.api.sanity.io/v1/graphql/production/default"}`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        query,
+        variables,
+      }),
+    },
+  ).then((response) => response.json());
+  return data;
 }
 
 export function formatBlogPostDate ( date ) {
