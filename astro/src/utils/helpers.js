@@ -13,7 +13,7 @@ const builder = imageUrlBuilder(client);
 
 export async function getSanityContent({ query, variables = {} }) {
   const { data } = await fetch(
-    `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL || "https://adxlh59f.api.sanity.io/v1/graphql/production/default"}`,
+    `${import.meta.env.PUBLIC_SANITY_GRAPHQL_URL}`,
     {
       method: 'POST',
       headers: {

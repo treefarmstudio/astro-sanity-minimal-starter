@@ -9,12 +9,11 @@
   },
   "devDependencies": {
     "@astrojs/renderer-lit": "^0.2.1",
-    "astro": "^0.21.11",
+    "@sanity/block-content-to-markdown": "^0.0.5",
+    "@sanity/block-content-to-react": "^3.0.0",
+    "@sanity/image-url": "^1.0.1",
+    "astro": "^0.21.12",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0"
-  },
-  "dependencies": {
-    "@sanity/block-content-to-markdown": "^0.0.5",
-    "@sanity/image-url": "^0.140.22"
   }
 }
