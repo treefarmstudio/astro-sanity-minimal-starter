@@ -8,7 +8,7 @@ export interface Props {
   permalink: string;
   publishDate: string;
   ogImageUrl: string;
-  canonicalURL?: string;
+  canonicalURL?: URL;
   articleSchema?: boolean;
 }
 const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, articleSchema } = Astro.props;
@@ -31,14 +31,14 @@ const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, ar
 <link rel="canonical" href={canonicalURL}>
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={permalink || site.url} />
+<meta property="og:url" content={canonicalURL || site.url} />
 <meta property="og:title" content={title || site.title} />
 <meta property="og:description" content={description || site.description} />
 <meta property="og:image" content={ogImageUrl ? `${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalink || site.url} />
+<meta property="twitter:url" content={canonicalURL || site.url} />
 <meta property="twitter:title" content={title || site.title} />
 <meta property="twitter:description" content={description || site.description} />
 <meta property="twitter:image" content={ogImageUrl ? ogImageUrl : `${site.url}/assets/img/social.jpg`} />
