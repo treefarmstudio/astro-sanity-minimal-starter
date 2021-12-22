@@ -14,7 +14,7 @@ export const codeBlockStyles = css`
     background: #e2e8f022;
     border: none;
     border-radius: 0.25rem;
-    color: var(--color-white);
+    color: var(--color-white, #ffffff);
     font-weight: 600;
     line-height: 1;
     cursor: pointer;
