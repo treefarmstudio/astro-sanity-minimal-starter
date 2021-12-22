@@ -26,7 +26,7 @@ export class CodeBlock extends LitElement {
     window.getSelection().addRange(range);
     // check if the browser supports clipboard API
     if (!navigator.clipboard) {
-      // if not use the old commandExec() way
+      // if not use the old execCommand() way
       document.execCommand('copy');
     } else {
       try {
