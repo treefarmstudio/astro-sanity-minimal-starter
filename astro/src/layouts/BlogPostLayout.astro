@@ -1,5 +1,4 @@
 ---
-import { Markdown } from 'astro/components';
 import BaseHead from '../components/BaseHead.astro';
 
 const {title, description, ogImageUrl, publishDate, permalink} = Astro.props;
@@ -11,11 +10,11 @@ const {title, description, ogImageUrl, publishDate, permalink} = Astro.props;
   </head>
 
   <body>
-    <!-- <Header /> -->
+    
     <main>
       <slot/>
     </main>
-    <!-- <Footer/> -->
+    <script type="module" src={Astro.resolve('../components/CodeBlock/code-block.ts')}></script>
   </body>
 </html>
 
