@@ -2,33 +2,12 @@
 // Component Imports
 import BlogPostLayout from '../../../layouts/BlogPostLayout.astro'
 import BlogPostPreview from '../../../components/BlogPostPreview.astro'
-
-import { getSanityImageUrl, getSanityContent } from '../../../utils/helpers.js';
-import { allPosts, allCategories } from '../../../lib/api.js';
+import {client} from '../../../lib/sanityClient.js'
+// import { getSanityImageUrl } from '../../../utils/helpers.js';
+import { allCategoriesWithPosts } from '../../../lib/api.js';
 
 export async function getStaticPaths() {
-  const postResponse = await getSanityContent({query: allPosts})
-  const allBlogPosts = postResponse.allPost;
-
-  const categoryResponse = await getSanityContent({query: allCategories})
-  const allCategoryData = categoryResponse.allCategory;
-
-   // for each category we'll create a posts array
-  allCategoryData.forEach(category => {
-    category.posts = [];
-  });
-
-  allBlogPosts.map((post) => {
-    // filter blog posts without categories or invalid published dates
-    if(post.categories.length > 0) {
-      post.categories.map((postCategory) => {
-         let category = allCategoryData.find(category => postCategory._id === category._id);
-        // // push it to the posts array we created
-        category.posts.push({post});
-        // console.log(category);
-      })
-    }
-  })
+  const allCategoryData = await client.fetch(allCategoriesWithPosts);
 
   return allCategoryData.map(category => ({params: { slug: category.slug.current }, props: {category}}));
 }
@@ -39,6 +18,6 @@ const { category } = Astro.props;
 <BlogPostLayout title={category.title} >
     <h1>All Posts Tagged with "{category.title}"</h1>
     {category.posts.map((post) => (
-       <BlogPostPreview post={post.post} />
+       <BlogPostPreview post={post} />
     ))}
 </BlogPostLayout>

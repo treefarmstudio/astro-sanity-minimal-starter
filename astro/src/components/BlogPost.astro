@@ -17,7 +17,7 @@ const { post } = Astro.props;
       <h1>{post.title}</h1>
       <time>{formatBlogPostDate(post.publishedAt)}</time>
       {post.author && <p>By {post.author.name}</p>}
-      <SanityBlockContent blocks={post.bodyRaw} />
+      <SanityBlockContent blocks={post.body} />
   </article>
 </Wrapper>
 
