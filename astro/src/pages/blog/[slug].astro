@@ -26,7 +26,12 @@ export async function getStaticPaths({rss}) {
 
 const { post } = Astro.props;
 ---
-<!DOCTYPE html>
+
 <BlogPostLayout title={post.title}  ogImageUrl={getSanityImageUrl(post.mainImage).width(1200).url()} >
+  <ul>
+    {post.categories.map(category => (
+      <li><a href={`/blog/category/${category.slug.current}`}>{category.title}</a></li>
+    ))}
+  </ul>
    <BlogPost post={post} />
 </BlogPostLayout>

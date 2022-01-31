@@ -1,19 +1,36 @@
 export const allPosts = `{
-  allPost{
+  allPost {
     slug {
       current
     }
     title
-  	publishedAt
-    author{
+    publishedAt
+    author {
       name
     }
-    mainImage{
-      asset{
+    categories {
+      _id
+      title
+      slug {
+        current
+      }
+    }
+    mainImage {
+      asset {
         url
       }
     }
     excerpt
     bodyRaw
+  }
+}`;
+
+export const allCategories = `{
+  allCategory {
+    _id
+    title
+    slug {
+      current
+    }
   }
 }`;
