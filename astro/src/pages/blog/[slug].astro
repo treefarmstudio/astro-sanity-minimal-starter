@@ -2,13 +2,12 @@
 // Component Imports
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
 import BlogPost from '../../components/BlogPost.astro'
-
-import { getSanityImageUrl, getSanityContent } from '../../utils/helpers.js';
+import {client} from '../../lib/sanityClient.js';
+import { getSanityImageUrl } from '../../utils/helpers.js';
 import { allPosts } from '../../lib/api.js';
 
 export async function getStaticPaths({rss}) {
-  const response = await getSanityContent({query: allPosts})
-  const allBlogPosts = response.allPost;
+  const allBlogPosts = await client.fetch(allPosts);
 
   rss({
     title: 'Example Blog',
@@ -26,7 +25,12 @@ export async function getStaticPaths({rss}) {
 
 const { post } = Astro.props;
 ---
-<!DOCTYPE html>
+
 <BlogPostLayout title={post.title}  ogImageUrl={getSanityImageUrl(post.mainImage).width(1200).url()} >
+  <ul>
+    {post.categories.map(category => (
+      <li><a href={`/blog/category/${category.slug.current}`}>{category.title}</a></li>
+    ))}
+  </ul>
    <BlogPost post={post} />
 </BlogPostLayout>

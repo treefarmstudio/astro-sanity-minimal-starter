@@ -16,5 +16,8 @@
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "prismjs": "^1.25.0"
+  },
+  "dependencies": {
+    "@sanity/client": "^2.23.2"
   }
 }

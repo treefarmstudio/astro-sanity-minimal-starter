@@ -4,7 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import Wrapper from '../../components/Wrapper.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
-import { getSanityContent } from '../../utils/helpers.js';
+import { client } from '../../lib/sanityClient.js';
 import { allPosts } from '../../lib/api.js';
 
 // Component Script:
@@ -15,8 +15,7 @@ let title = 'Example Blog';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 let permalink = 'https://example.com/blog/';
 
-const response = await getSanityContent({query: allPosts});
-const posts = response.allPost;
+const allPostData = await client.fetch(allPosts);
 
 ---
 <!DOCTYPE html>
@@ -24,7 +23,7 @@ const posts = response.allPost;
   <Wrapper>
     <article class="blog-page-content__article">
       <section class="postlist">
-        {posts.map((post) => <BlogPostPreview post={post} />)}
+        {allPostData.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
   </Wrapper>
