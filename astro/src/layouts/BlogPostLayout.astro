@@ -7,14 +7,12 @@ const {title, description, ogImageUrl, publishDate, permalink} = Astro.props;
 <html>
   <head>
     <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={ogImageUrl} publishDate={publishDate} canonicalURL={Astro.request.canonicalURL} articleSchema />
+    <script type="module" src={(await import ('../components/CodeBlock/code-block.ts?url')).default}></script>
   </head>
-
   <body>
-    
     <main>
       <slot/>
     </main>
-    <script type="module" src={Astro.resolve('../components/CodeBlock/code-block.ts')}></script>
   </body>
 </html>
 
