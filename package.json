@@ -1,9 +1,8 @@
 {
   "private": false,
   "name": "astro-sanity-minimal-starter",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "scripts": {
-    "graphql-deploy": "lerna run graphql-deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
