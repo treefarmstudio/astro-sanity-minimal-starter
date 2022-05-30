@@ -1,15 +1,15 @@
 ---
+import Container from '../components/Container.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Wrapper from '../components/Wrapper.astro';
 
 let title = 'Uh Oh! Page Not Found';
 let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
 ---
 
 <BaseLayout title={title} description={description}>
-    <Wrapper>
+    <Container>
     <h1>404</h1>
     <p>Uh Oh! We couldn't find the page you were looking for</p>
     <a href="/">Return Home</a>
-    </Wrapper>
+    </Container>
 </BaseLayout>

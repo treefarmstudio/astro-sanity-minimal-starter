@@ -1,11 +1,11 @@
 ---
 // Component Imports
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import Wrapper from '../../components/Wrapper.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
 import { client } from '../../lib/sanityClient.js';
 import { allPosts } from '../../lib/api.js';
+import Container from '../../components/Container.astro';
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -20,13 +20,13 @@ const allPostData = await client.fetch(allPosts);
 ---
 <!DOCTYPE html>
 <BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL}>
-  <Wrapper>
+  <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
         {allPostData.map((post) => <BlogPostPreview post={post} />)}
       </section>
     </article>
-  </Wrapper>
+  </Container>
 </BaseLayout>
 
 <style global>
