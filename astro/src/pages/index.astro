@@ -7,7 +7,7 @@ let description = 'This is a starter repo for an blog built with Astro including
 let permalink = 'https://example.com/';
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL}>
   <Wrapper>
     <h1>Astro Sanity Minimal Starter</h1>
     <a href="/blog">Blog</a>

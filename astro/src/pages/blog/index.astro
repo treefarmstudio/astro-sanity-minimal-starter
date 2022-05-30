@@ -19,7 +19,7 @@ const allPostData = await client.fetch(allPosts);
 
 ---
 <!DOCTYPE html>
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL}>
   <Wrapper>
     <article class="blog-page-content__article">
       <section class="postlist">
