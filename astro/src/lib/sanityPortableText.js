@@ -19,7 +19,7 @@ const customComponents = {
       `;
     },
     code: ({ value }) => {
-      return html`<code-block code=${value.code} language=${value.language}></code-block>`;
+      return `<code-block code='${value.code}' language='${value.language}'></code-block>`;
     },
   },
 };

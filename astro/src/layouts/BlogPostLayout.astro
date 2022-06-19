@@ -1,18 +1,22 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 
-const {title, description, ogImageUrl, publishDate, permalink} = Astro.props;
+const { title, description, ogImageUrl, publishDate, permalink } = Astro.props;
 ---
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={ogImageUrl} publishDate={publishDate} canonicalURL={Astro.request.canonicalURL} articleSchema />
-    <script type="module" src={(await import ('../components/CodeBlock/code-block.ts?url')).default}></script>
-  </head>
-  <body>
-    <main>
-      <slot/>
-    </main>
-  </body>
-</html>
 
+<head>
+  <BaseHead title={title} description={description} permalink={permalink} ogImageUrl={ogImageUrl}
+    publishDate={publishDate} canonicalURL={Astro.canonicalURL} articleSchema />
+  <script src="../components/CodeBlock/code-block.ts"></script>
+</head>
+
+<body>
+  <main>
+    <slot />
+  </main>
+</body>
+
+</html>
