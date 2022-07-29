@@ -15,7 +15,7 @@
     "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.1",
     "@webcomponents/template-shadowroot": "^0.1.0",
-    "astro": "^1.0.0-beta.37",
+    "astro": "^1.0.0-rc.2",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "lit": "^2.2.5",

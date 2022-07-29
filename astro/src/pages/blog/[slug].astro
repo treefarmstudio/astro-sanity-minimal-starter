@@ -9,17 +9,17 @@ import { allPosts } from '../../lib/api.js';
 export async function getStaticPaths({ rss }) {
   const allBlogPosts = await client.fetch(allPosts);
 
-  rss({
-    title: 'Example Blog',
-    description: 'An example blog on Astro',
-    customData: `<language>en-us</language>`,
-    items: allBlogPosts.map(item => ({
-      title: item.title,
-      description: item.description,
-      link: `/blog/${item.slug.current}`,
-      pubDate: item.publishedAt,
-    })),
-  });
+  // rss({
+  //   title: 'Example Blog',
+  //   description: 'An example blog on Astro',
+  //   customData: `<language>en-us</language>`,
+  //   items: allBlogPosts.map(item => ({
+  //     title: item.title,
+  //     description: item.description,
+  //     link: `/blog/${item.slug.current}`,
+  //     pubDate: item.publishedAt,
+  //   })),
+  // });
   return allBlogPosts.map(post => ({ params: { slug: post.slug.current }, props: { post } }));
 }
 
@@ -28,7 +28,7 @@ const { post } = Astro.props;
 
 <BlogPostLayout title={post.title} ogImageUrl={'' && getSanityImageURL(post.mainImage).width(1200).url()}>
   <ul>
-    {post.categories.map(category => (
+    {post.categoryData.map(category => (
     <li><a href={`/blog/category/${category.slug.current}`}>{category.title}</a></li>
     ))}
   </ul>
