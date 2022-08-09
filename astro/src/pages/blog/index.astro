@@ -18,19 +18,21 @@ let permalink = 'https://example.com/blog/';
 const allPostData = await client.fetch(allPosts);
 
 ---
+
 <!DOCTYPE html>
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL}>
+<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.canonicalURL}>
   <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
-        {allPostData.map((post) => <BlogPostPreview post={post} />)}
+        {allPostData.map((post) =>
+        <BlogPostPreview post={post} />)}
       </section>
     </article>
   </Container>
 </BaseLayout>
 
-<style global>
- /* Posts list */
+<style is:global>
+  /* Posts list */
   .postlist {
     margin-top: 2rem;
     display: grid;
@@ -38,22 +40,24 @@ const allPostData = await client.fetch(allPosts);
     gap: 2rem;
     list-style: none;
     padding: 0;
-  
+
   }
+
   .postlist-item {
     display: flex;
     flex-direction: column;
   }
-  
+
   .postlist-item__img {
     border-radius: 0.5rem;
     height: auto;
   }
-    
+
   @media screen and (max-width: 769px) {
     .blog-page-content__article {
       padding: 1rem;
     }
+
     .postlist {
       grid-template-columns: 1fr;
     }
