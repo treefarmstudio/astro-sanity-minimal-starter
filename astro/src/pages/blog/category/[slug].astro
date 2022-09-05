@@ -1,9 +1,9 @@
 ---
 // Component Imports
-import BlogPostLayout from '../../../layouts/BlogPostLayout.astro'
+import Layout from '../../../layouts/Page.astro'
 import BlogPostPreview from '../../../components/BlogPostPreview.astro'
 import {client} from '../../../lib/sanityClient.js'
-// import { getSanityImageUrl } from '../../../utils/helpers.js';
+
 import { allCategoriesWithPosts } from '../../../lib/api.js';
 
 export async function getStaticPaths() {
@@ -13,11 +13,15 @@ export async function getStaticPaths() {
 }
 
 const { category } = Astro.props;
+
+const seo = {
+  title: category.title,
+}
 ---
 
-<BlogPostLayout title={category.title} >
+<Layout seo={seo} >
     <h1>All Posts Tagged with "{category.title}"</h1>
     {category.posts.map((post) => (
        <BlogPostPreview post={post} />
     ))}
-</BlogPostLayout>
+</Layout>

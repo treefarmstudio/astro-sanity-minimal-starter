@@ -1,36 +1,42 @@
 ---
 // Component Imports
-import BlogPostLayout from '../../layouts/BlogPostLayout.astro'
+import Layout from '../../layouts/Post.astro'
 import BlogPost from '../../components/BlogPost.astro'
-import {client} from '../../lib/sanityClient.js';
-import { getSanityImageUrl } from '../../utils/helpers.js';
+import { client } from '../../lib/sanityClient.js';
+import { getSanityImageURL } from '../../utils/helpers.js';
 import { allPosts } from '../../lib/api.js';
 
-export async function getStaticPaths({rss}) {
+export async function getStaticPaths() {
   const allBlogPosts = await client.fetch(allPosts);
 
-  rss({
-    title: 'Example Blog',
-    description: 'An example blog on Astro',
-    customData: `<language>en-us</language>`,
-    items: allBlogPosts.map(item => ({
-      title: item.title,
-      description: item.description,
-      link: `/blog/${item.slug.current}`,
-      pubDate: item.publishedAt,
-    })),
-  });
-  return allBlogPosts.map(post => ({params: { slug: post.slug.current }, props: {post}}));
+  // rss({
+  //   title: 'Example Blog',
+  //   description: 'An example blog on Astro',
+  //   customData: `<language>en-us</language>`,
+  //   items: allBlogPosts.map(item => ({
+  //     title: item.title,
+  //     description: item.description,
+  //     link: `/blog/${item.slug.current}`,
+  //     pubDate: item.publishedAt,
+  //   })),
+  // });
+  return allBlogPosts.map(post => ({ params: { slug: post.slug.current }, props: { post } }));
 }
 
 const { post } = Astro.props;
+
+const seo = {
+  title: post.title,
+  description: post.description,
+  image: getSanityImageURL(post.mainImage).width(1200).url(),
+}
 ---
 
-<BlogPostLayout title={post.title}  ogImageUrl={getSanityImageUrl(post.mainImage).width(1200).url()} >
-  <ul>
-    {post.categories.map(category => (
-      <li><a href={`/blog/category/${category.slug.current}`}>{category.title}</a></li>
+<Layout seo={seo}>
+ {post.categoryData && <ul>
+    {post.categoryData.map(category => (
+    <li><a href={`/blog/category/${category.slug.current}`}>{category.title}</a></li>
     ))}
-  </ul>
-   <BlogPost post={post} />
-</BlogPostLayout>
+  </ul>}
+  <BlogPost post={post} />
+</Layout>

@@ -1,6 +1,6 @@
 {
-  "name": "astro-minimal-starter",
-  "version": "v2.0.0",
+  "name": "astro-sanity-minimal-starter",
+  "version": "v3.1.0",
   "private": false,
   "scripts": {
     "dev": "astro dev",
@@ -8,16 +8,14 @@
     "build": "astro build"
   },
   "devDependencies": {
-    "@astrojs/renderer-lit": "^0.2.1",
-    "@sanity/block-content-to-markdown": "^0.0.5",
-    "@sanity/block-content-to-react": "^3.0.0",
+    "@astrojs/sitemap": "^0.1.0",
+    "@portabletext/to-html": "^1.0.3",
+    "@sanity/client": "^2.23.2",
     "@sanity/image-url": "^1.0.1",
-    "astro": "^0.24.3",
+    "astro": "^1.1.5",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
+    "lit": "^2.3.1",
     "prismjs": "^1.25.0"
-  },
-  "dependencies": {
-    "@sanity/client": "^2.23.2"
   }
 }

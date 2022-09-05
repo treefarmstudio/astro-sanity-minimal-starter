@@ -1,47 +1,50 @@
 ---
-import ArticleSchema from "./ArticleSchema.jsx";
-import site from "../data/site.js";
+import settings from "../data/settings.js";
+
+import '../styles/reset.css';
+import '../styles/global.css';
 
 export interface Props {
-  title: string;
-  description: string;
-  permalink: string;
-  publishDate: string;
-  ogImageUrl: string;
-  canonicalURL?: URL;
-  articleSchema?: boolean;
+	title?: string;
+	description?: string;
+	canonicalURL?: URL | string;
+	image?: string;
 }
-const { title, description, permalink, publishDate, ogImageUrl, canonicalURL, articleSchema } = Astro.props;
+
+const title = Astro.props.title || settings.title;
+const description = Astro.props.description || settings.description;
+const canonicalURL = Astro.props.canonicalURL || new URL(Astro.url.pathname, Astro.site);
+const image = new URL(Astro.props.image || './social.png', Astro.site);
 ---
 
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 
-<link rel="icon" href="/favicon.svg">
-<link rel="stylesheet" href="/style/global.css"/>
+
 <!-- Primary Meta Tags -->
-<title>{title}</title>
-<meta name="title" content={title || site.title} />
-<meta name="description" content={description || site.description} />
-<!-- Sitemap -->
-<link rel="sitemap" href="/sitemap.xml">
+<title>{title || settings.title}</title>
+<meta name="title" content={title || settings.title} />
+<meta name="description" content={description || settings.description} />
+<!-- settingsmap -->
+<link rel="settingsmap" href="/settingsmap.xml">
 <!-- RSS -->
-<link rel="alternate" type="application/rss+xml" title={`${site.name} Blog`} href={`${site.url}/feed/blog.xml`}/>
+<link rel="alternate" type="application/rss+xml" title={`${settings.name} Blog`} href={`${settings.url}/feed/blog.xml`}/>
 <!-- Canonical -->
 <link rel="canonical" href={canonicalURL}>
+
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content={canonicalURL || site.url} />
-<meta property="og:title" content={title || site.title} />
-<meta property="og:description" content={description || site.description} />
-<meta property="og:image" content={ogImageUrl ? `${ogImageUrl}` : `${site.url}/assets/img/social.jpg`} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL || site.url} />
-<meta property="twitter:title" content={title || site.title} />
-<meta property="twitter:description" content={description || site.description} />
-<meta property="twitter:image" content={ogImageUrl ? ogImageUrl : `${site.url}/assets/img/social.jpg`} />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={image} />
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,5 +71,4 @@ onload="this.onload=null;this.rel='stylesheet'">
     rel="stylesheet"
     type="text/css">
 </noscript>
-{articleSchema && (<ArticleSchema title={title} description={description} permalink={permalink} publishDate={publishDate} ogImageUrl={ogImageUrl} />)}
 

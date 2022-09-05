@@ -1,7 +1,7 @@
 ---
-import Wrapper from './Wrapper.astro'
-import SanityBlockContent from './SanityBlockContent.jsx'
-import { getSanityImageUrl, formatBlogPostDate } from '../utils/helpers.js'
+import SanityPortableText from './SanityPortableText.astro'
+import { getSanityImageURL, formatBlogPostDate } from '../utils/helpers.js'
+import Container from './Container.astro';
 
 export interface Props {
   post: any;
@@ -11,15 +11,15 @@ const { post } = Astro.props;
 // const blogPostBody = await convertBlockContentToMarkdown(post.bodyRaw);
 ---
 
-<Wrapper>
+<Container>
   <article class="post-content__article">
-      {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage).url()} />}
+      {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageURL(post.mainImage).url()} />}
       <h1>{post.title}</h1>
       <time>{formatBlogPostDate(post.publishedAt)}</time>
       {post.author && <p>By {post.author.name}</p>}
-      <SanityBlockContent blocks={post.body} />
+      <SanityPortableText portableText={post.body} />
   </article>
-</Wrapper>
+</Container>
 
 <style>
   .post-content__article {

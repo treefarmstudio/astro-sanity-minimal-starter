@@ -1,36 +1,35 @@
 ---
 // Component Imports
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import Wrapper from '../../components/Wrapper.astro'
+import Layout from '../../layouts/Page.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
 import { client } from '../../lib/sanityClient.js';
 import { allPosts } from '../../lib/api.js';
+import Container from '../../components/Container.astro';
 
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
-let title = 'Example Blog';
-let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
-let permalink = 'https://example.com/blog/';
+
+const seo = {
+  title: 'Example Blog',
+  description: 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.'
+}
 
 const allPostData = await client.fetch(allPosts);
 
 ---
-<!DOCTYPE html>
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
-  <Wrapper>
+
+<Layout seo={seo}>
+  <Container>
     <article class="blog-page-content__article">
       <section class="postlist">
-        {allPostData.map((post) => <BlogPostPreview post={post} />)}
+        {allPostData.map((post) =>
+        <BlogPostPreview post={post} />)}
       </section>
     </article>
-  </Wrapper>
-</BaseLayout>
+  </Container>
+</Layout>
 
-<style global>
- /* Posts list */
+<style is:global>
+  /* Posts list */
   .postlist {
     margin-top: 2rem;
     display: grid;
@@ -38,22 +37,24 @@ const allPostData = await client.fetch(allPosts);
     gap: 2rem;
     list-style: none;
     padding: 0;
-  
+
   }
+
   .postlist-item {
     display: flex;
     flex-direction: column;
   }
-  
+
   .postlist-item__img {
     border-radius: 0.5rem;
     height: auto;
   }
-    
+
   @media screen and (max-width: 769px) {
     .blog-page-content__article {
       padding: 1rem;
     }
+
     .postlist {
       grid-template-columns: 1fr;
     }

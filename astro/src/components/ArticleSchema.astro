@@ -1,0 +1,47 @@
+---
+import settings from '../data/settings.js';
+
+const { title, permalink, publishDate, ogImageUrl, description } = Astro.props;
+
+const ldData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": {
+    "@type": "Organization",
+    "name": `${settings.name} Blog`,
+    "url": `${settings.url}/blog/`,
+  },
+  "author": {
+    "@type": "Person",
+    "name": `${settings.name}`,
+    "image": {
+      "@type": "ImageObject",
+      "url": `${settings.url}/assets/img/favicon.png`,
+      "width": 512,
+      "height": 512
+    },
+    "url": "https://example.com/about/",
+    "sameAs": [
+      `${settings.url}`,
+      `${settings.facebookURL}`,
+      `${settings.twitterURL}`,
+      `${settings.instagramURL}`
+    ]
+  },
+  "headline": `${title}`,
+  "url": `${permalink}`,
+  "datePublished": `${publishDate}`,
+  "image": {
+    "@type": "ImageObject",
+    "url": `${ogImageUrl}`,
+    "width": 1200,
+  },
+  "description": `${description}`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${settings.url}/blog/`
+  }
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(ldData)} />

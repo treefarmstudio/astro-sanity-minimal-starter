@@ -1,15 +1,39 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Wrapper from '../components/Wrapper.astro';
+import Layout from '../layouts/Page.astro';
+import Container from '../components/Container.astro';
 
-let title = 'Astro Sanity Minimal Starter';
-let description = 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.';
-let permalink = 'https://example.com/';
+
+const seo = {
+  title: "Astro Minimal Starter",
+  description: "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support."
+}
 ---
 
-<BaseLayout title={title} description={description} permalink={permalink} canonicalURL={Astro.request.canonicalURL.href}>
-  <Wrapper>
+<Layout seo={seo}>
+  <Container>
     <h1>Astro Sanity Minimal Starter</h1>
-    <a href="/blog">Blog</a>
-  </Wrapper>
-</BaseLayout>
+    
+    <p>
+      If you haven't heard about <a href="https://astro.build">Astro</a> yet you're missing out. This starter repo gives you a blog website with a headless CMS setup using <a href="https://sanity.io">Sanity.io</a>.</p>
+
+    <p>
+      Don't be fooled by the simplicity of this starter either. With excellent SEO built in, Astro's excellent developer environment, and performance best practices you're getting one of the best foundations for a personal blog with posts written in markdown. The reason for making such a bare bones starter in terms of styles is that it has what you need out of the box for SEO and site structure but it makes no assumptions about how you want it look and behave.
+    </p>
+
+    <p>Sometimes starters can feel like they are giving us way too much and you'll spend a day picking apart half of the code to get to the setup you actually wanted. Want to use vanilla CSS instead of Tailwind or Scss? No problem!</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>A customizable headless CMS with <a href="https://sanity.io">Sanity.io</a></li>
+      <li>Excellent SEO Built In</li>
+      <li>Open Graph Tags (Twitter, Facebook, etc.)</li>
+      <li>User Declared Canonical URLs</li>
+      <li>RSS Feed</li>
+      <li>XML Sitemap</li>
+      <li>Robots.txt</li>
+      <li>JSON LD Schema</li>
+    </ul>
+
+    <a href="/blog">Blog →</a>
+  </Container>
+</Layout>

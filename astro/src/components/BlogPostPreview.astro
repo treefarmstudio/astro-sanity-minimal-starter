@@ -1,5 +1,5 @@
 ---
-import { getSanityImageUrl, formatBlogPostDate } from '../utils/helpers.js'
+import { getSanityImageURL, formatBlogPostDate } from '../utils/helpers.js'
 
 export interface Props {
   post: any;
@@ -10,7 +10,7 @@ const { post } = Astro.props;
 
 <article class="post-preview__article">
     <a href={`/blog/${post.slug.current}`}>
-      {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageUrl(post.mainImage).url()} />}
+      {post.mainImage && <img width="720" height="420" class="post-main__img" loading="lazy" src={getSanityImageURL(post.mainImage).url()} />}
       <h1 class="title">{post.title}</h1>
       <time class="publish-date">{formatBlogPostDate(post.publishedAt)}</time>
       <p>{post.excerpt}</p>
@@ -18,9 +18,6 @@ const { post } = Astro.props;
 </article>
 
 <style>
-  .post-preview__article {
-    max-width: 400px;
-  }
   a {
     color: inherit;
     text-decoration: none;
