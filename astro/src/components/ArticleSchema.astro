@@ -1,5 +1,5 @@
 ---
-import site from '../data/site.js';
+import settings from '../data/settings.js';
 
 const { title, permalink, publishDate, ogImageUrl, description } = Astro.props;
 
@@ -8,24 +8,24 @@ const ldData = {
   "@type": "Article",
   "publisher": {
     "@type": "Organization",
-    "name": `${site.name} Blog`,
-    "url": `${site.url}/blog/`,
+    "name": `${settings.name} Blog`,
+    "url": `${settings.url}/blog/`,
   },
   "author": {
     "@type": "Person",
-    "name": `${site.name}`,
+    "name": `${settings.name}`,
     "image": {
       "@type": "ImageObject",
-      "url": `${site.url}/assets/img/favicon.png`,
+      "url": `${settings.url}/assets/img/favicon.png`,
       "width": 512,
       "height": 512
     },
     "url": "https://example.com/about/",
     "sameAs": [
-      `${site.url}`,
-      `${site.facebookURL}`,
-      `${site.twitterURL}`,
-      `${site.instagramURL}`
+      `${settings.url}`,
+      `${settings.facebookURL}`,
+      `${settings.twitterURL}`,
+      `${settings.instagramURL}`
     ]
   },
   "headline": `${title}`,
@@ -39,7 +39,7 @@ const ldData = {
   "description": `${description}`,
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": `${site.url}/blog/`
+    "@id": `${settings.url}/blog/`
   }
 }
 ---
