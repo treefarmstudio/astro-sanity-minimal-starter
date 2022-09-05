@@ -4,7 +4,22 @@ import { getSanityImageURL } from '../utils/helpers.js';
 const customComponents = {
   types: {
     mainImage: ({ value }) => {
-      return html`
+      return `
+        <picture>
+          <source
+            srcset="${getSanityImageURL(value.asset).format('webp').url()}"
+            type="image/webp"
+          />
+          <img
+            class="responsive__img"
+            src="${getSanityImageURL(value.asset).url()}"
+            alt="${value.alt}"
+          />
+        </picture>
+      `;
+    },
+    image: ({ value }) => {
+      return `
         <picture>
           <source
             srcset="${getSanityImageURL(value.asset).format('webp').url()}"
