@@ -1,4 +1,4 @@
-import { toHTML } from '@portabletext/to-html';
+import { portableTextToHtml } from 'astro-sanity';
 import { getSanityImageURL } from '../utils/helpers.js';
 
 const customComponents = {
@@ -40,5 +40,5 @@ const customComponents = {
 };
 
 export function sanityPortableText(portabletext) {
-  return toHTML(portabletext, { components: customComponents });
+  return portableTextToHtml(portabletext, customComponents);
 }
