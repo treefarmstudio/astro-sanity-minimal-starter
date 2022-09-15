@@ -1,8 +1,7 @@
 import { parseISO, format } from 'date-fns';
-import { client } from '../lib/sanityClient.js';
-import imageUrlBuilder from '@sanity/image-url';
+import { useSanityClient, createImageBuilder} from 'astro-sanity';
 
-const builder = imageUrlBuilder(client);
+const builder = createImageBuilder(useSanityClient());
 
 export function formatBlogPostDate(date) {
   const dateString = parseISO(date, 'YYYY/MM/Do');

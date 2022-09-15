@@ -2,12 +2,11 @@
 // Component Imports
 import Layout from '../../../layouts/Page.astro'
 import BlogPostPreview from '../../../components/BlogPostPreview.astro'
-import {client} from '../../../lib/sanityClient.js'
 
-import { allCategoriesWithPosts } from '../../../lib/api.js';
+import { getAllCategoriesWithPosts } from '../../../lib/api.js';
 
 export async function getStaticPaths() {
-  const allCategoryData = await client.fetch(allCategoriesWithPosts);
+  const allCategoryData = await getAllCategoriesWithPosts();
 
   return allCategoryData.map(category => ({params: { slug: category.slug.current }, props: {category}}));
 }

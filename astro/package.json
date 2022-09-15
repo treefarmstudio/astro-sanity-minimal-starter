@@ -1,6 +1,6 @@
 {
   "name": "astro-sanity-minimal-starter",
-  "version": "v3.1.0",
+  "version": "v3.2.0",
   "private": false,
   "scripts": {
     "dev": "astro dev",
@@ -9,10 +9,8 @@
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.1.0",
-    "@portabletext/to-html": "^1.0.3",
-    "@sanity/client": "^2.23.2",
-    "@sanity/image-url": "^1.0.1",
-    "astro": "^1.1.5",
+    "astro": "^1.2.4",
+    "astro-sanity": "^1.0.0",
     "date-fns": "^2.23.0",
     "dotenv": "^10.0.0",
     "lit": "^2.3.1",

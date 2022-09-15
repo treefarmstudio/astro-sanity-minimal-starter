@@ -3,8 +3,7 @@
 import Layout from '../../layouts/Page.astro'
 import BlogPostPreview from '../../components/BlogPostPreview.astro';
 
-import { client } from '../../lib/sanityClient.js';
-import { allPosts } from '../../lib/api.js';
+import { getAllPosts } from '../../lib/api.js';
 import Container from '../../components/Container.astro';
 
 
@@ -13,7 +12,7 @@ const seo = {
   description: 'This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support.'
 }
 
-const allPostData = await client.fetch(allPosts);
+const allPostData = await getAllPosts();
 
 ---
 
