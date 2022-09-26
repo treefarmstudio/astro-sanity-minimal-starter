@@ -10,7 +10,7 @@ export interface Props {
 const { seo } = Astro.props as Props;
 ---
 
-<Layout>
+<Layout seo={seo}>
   <Fragment>
       <ArticleSchema {...seo}  />
       <script src="../components/CodeBlock/code-block.ts"></script>
