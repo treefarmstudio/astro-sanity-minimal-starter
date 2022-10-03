@@ -42,6 +42,7 @@ export default {
       title: 'Published at',
       type: 'datetime',
       validation: Rule => Rule.required(),
+      initialValue: (new Date()).getTime()
     },
     {
       name: 'excerpt',
