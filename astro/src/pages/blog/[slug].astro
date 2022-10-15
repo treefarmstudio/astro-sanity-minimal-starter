@@ -24,11 +24,15 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 
+const resolvedImage = post.mainImage
+  ? getSanityImageURL(post.mainImage).width(1200).url()
+  : null;
+
 const seo = {
   title: post.title,
   description: post.description,
-  image: getSanityImageURL(post.mainImage).width(1200).url(),
-}
+  image: resolvedImage,
+};
 ---
 
 <Layout seo={seo}>
